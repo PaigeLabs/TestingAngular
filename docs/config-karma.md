@@ -10,7 +10,7 @@ add: 'app/lib/angular/angular.min.js' before the ** files
 
 so that the files array looks like
 
-```json
+```js
 // list of files / patterns to load in the browser
 files: [
   'app/lib/angular/angular.min.js',
