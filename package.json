@@ -9,7 +9,7 @@
     "start": "http-server ./app -a localhost -p 3000 -c-1",
     "pretest": "npm install",
     "test": "karma start karma.conf.js",
-    "test-single-run": "karma start karma.conf.js  --single-run"
+    "tsr": "karma start karma.conf.js  --single-run"
   },
   "repository": {
     "type": "git",
