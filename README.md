@@ -1,7 +1,7 @@
 ## Testing Angular Class Code
 
 ### Getting Started
-clone the app
+Clone the app
 
 ``` bash
 git clone https://github.com/PaigeLabs/TestingAngular.git

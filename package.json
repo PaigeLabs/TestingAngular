@@ -16,9 +16,12 @@
     "tdd"
   ],
   "author": "leebrandt@gmail.com",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/PaigeLabs/TestingAngular/issues"
   },
-  "homepage": "https://github.com/PaigeLabs/TestingAngular"
+  "homepage": "https://github.com/PaigeLabs/TestingAngular",
+  "devDependencies": {
+    "gulp": "^3.8.11"
+  }
 }
