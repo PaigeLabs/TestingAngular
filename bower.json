@@ -1,0 +1,15 @@
+{
+  "name": "TestingAngular",
+  "version": "0.0.0",
+  "homepage": "https://github.com/PaigeLabs/TestingAngular",
+  "authors": [
+    "Lee Brandt <leebrandt@gmail.com>"
+  ],
+  "description": "TDD for Angular class code",
+  "keywords": [
+    "angular",
+    "tdd",
+    "test"
+  ],
+  "license": "ISC"
+}
