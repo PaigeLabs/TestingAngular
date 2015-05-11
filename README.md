@@ -10,7 +10,7 @@ git clone https://github.com/PaigeLabs/TestingAngular.git
 Then install the dependencies
 
 ``` bash
-npm install && bower install
+npm install
 ```
 
 Run the app
