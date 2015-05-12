@@ -2,10 +2,14 @@ describe('Weather controller', function() {
 	
 	beforeEach(module('weather'));
 
-	var weatherController, weatherService;
-	beforeEach(inject(function($controller, _WeatherSvc_) {
+	var weatherController, weatherService, deferred, $scope, city;
+	beforeEach(inject(function($controller, $q, $rootScope, _WeatherSvc_) {
 		weatherService = _WeatherSvc_;
-		weatherController = $controller('WeatherCtrl', {WeatherSvc:weatherService});
+		$scope = $rootScope.$new();
+		weatherController = $controller('WeatherCtrl', {$scope:$scope, WeatherSvc:weatherService});
+		deferred = $q.defer();
+		spyOn(weatherService, 'GetCurrentWeather').and.returnValue(deferred.promise);
+		city = 'MyCity,KS';
 	}));
 
 	it('should exist', function(){
@@ -13,10 +17,14 @@ describe('Weather controller', function() {
 	});
 
 	it('should call the weather service for the current weather', function(){
-		spyOn(weatherService, 'GetCurrentWeather').and.callFake(function(){
-			// do nothing on purpose;
-		});
-		weatherController.loadCurrentWeather();
+		weatherController.loadCurrentWeather(city);
 		expect(weatherService.GetCurrentWeather).toHaveBeenCalled();
+	});
+
+	it('should get the current weather for the specified city', function(){
+		weatherController.loadCurrentWeather(city);
+		deferred.resolve({simple:'object'});
+		$scope.$apply();
+		expect(weatherController.currentWeather).toEqual({simple:'object'});
 	});
 });

@@ -2,7 +2,7 @@
 	'use strict';
 
 	var weatherService = function($http){
-		var getCurrentWeather = function(){
+		var getCurrentWeather = function(city){
 			return $http.get('');
 		};
 
