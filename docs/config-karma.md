@@ -1,4 +1,4 @@
-## configuring Karma
+## Configuring Karma
 
 ```bash
 karma init
