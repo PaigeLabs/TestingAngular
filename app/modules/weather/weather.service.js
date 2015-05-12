@@ -1,9 +1,9 @@
 (function(){ 
 	'use strict';
 
-	var weatherService = function(){
+	var weatherService = function($http){
 		var getCurrentWeather = function(){
-
+			return $http.get('');
 		};
 
 		return {
@@ -12,5 +12,5 @@
 	};
 
 	angular.module('weather')
-		.factory('WeatherSvc', weatherService); 
+		.factory('WeatherSvc', ['$http', weatherService]); 
 }());
