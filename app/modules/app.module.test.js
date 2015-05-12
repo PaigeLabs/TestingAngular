@@ -1,5 +1,9 @@
-describe('Jasmine Testing', function() {
-	it('should be able to run Jasmin tests', function(){
-		expect(true).toBe(true);
+describe('Application module', function() {
+	it('should exist', function(){
+		try{
+			angular.module('testApp');
+		}catch(err){
+			fail('Application module should exist but doesn\'t.');
+		}
 	});
 });
