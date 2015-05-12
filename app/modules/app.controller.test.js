@@ -10,4 +10,9 @@ describe('Application Controller', function() {
 	it('should exist', function(){
 		expect(appController).toBeDefined();
 	});
+
+	it('should have a message for the page', function(){
+		expect(appController.message).toBeDefined();
+	});
+
 });
