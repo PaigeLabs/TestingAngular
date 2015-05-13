@@ -34,38 +34,55 @@ describe('Weather controller', function() {
 	});
 
 	describe('When the city is set', function() {
-		it('should call the weather service if a city is set', function(){
-			weatherController.city = city;
+
+		beforeEach(function() {
+			weatherController.city = city;	
 			weatherController.loadCurrentWeather();
+		});
+
+		it('should call the weather service', function(){
 			expect(weatherService.GetCurrentWeather).toHaveBeenCalledWith(city);
 		});
 
 		it('should get the current weather for the specified city', function(){
-			weatherController.city = city;
-			weatherController.loadCurrentWeather();
 			deferred.resolve({data:{cod: 200, someValue:'object'}});
 			$scope.$apply();
 			expect(weatherController.currentWeather).toEqual({cod:200, someValue:'object'});
 		});
 
 		describe('when the service returns an error', function(){
-			it('should return an error to display', function(){
-				weatherController.city = city;
-				weatherController.loadCurrentWeather();
-				deferred.reject({data:{error:'something went wrong'}});
+			beforeEach(function() {
+				spyOn(console, 'error').and.callThrough();
+				deferred.reject({cod:400, message:'something went wrong'});
 				$scope.$apply();
+			});
+
+			it('should log the error', function(){
+				expect(console.error).toHaveBeenCalled();
+			});	
+
+			it('should return an error to display', function(){
 				expect(weatherController.errorMessage).toEqual('something went wrong');				
 			});
+
 		});
 
 		describe('When the service returns an error code as a success', function() {
-			it('should display the error message', function(){
-				weatherController.city = city;
-				weatherController.loadCurrentWeather();
-				deferred.resolve({"message":"Error: Not found city","cod":"404"});
+
+			beforeEach(function() {
+				spyOn(console, 'error').and.callThrough();
+				deferred.resolve({data:{"message":"Error: Not found city","cod":404}});
 				$scope.$apply();
+			});
+			
+			it('should log the error', function(){
+				expect(console.error).toHaveBeenCalled();
+			});		
+
+			it('should display the error message', function(){
 				expect(weatherController.errorMessage).toEqual("Error: Not found city");				
 			});
+
 		});
 	});
 

@@ -12,12 +12,13 @@
 							delete ctrl.errorMessage;
 							ctrl.currentWeather = result.data;
 						}else{
-							console.log(result);
+							console.error(result);
 							ctrl.errorMessage = result.data.message;
 						}
 					},
 					function(err){
-						ctrl.errorMessage = err.error;
+						console.error(err);
+						ctrl.errorMessage = err.message;
 					});
 			}else{
 				ctrl.errorMessage = 'No city provided.';

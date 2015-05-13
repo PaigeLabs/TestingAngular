@@ -28,6 +28,8 @@
   "homepage": "https://github.com/PaigeLabs/TestingAngular",
   "devDependencies": {
     "gulp": "^3.8.11",
+    "gulp-inject": "^1.2.0",
+    "gulp-karma": "0.0.4",
     "http-server": "^0.8.0",
     "jasmine-core": "^2.3.3",
     "karma": "^0.12.31",
