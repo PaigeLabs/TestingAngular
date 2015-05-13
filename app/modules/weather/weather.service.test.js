@@ -6,7 +6,7 @@ describe('Weather Service', function() {
 	beforeEach(inject(function($injector, _WeatherSvc_) {
 		httpBackend = $injector.get('$httpBackend');
 		weatherService = _WeatherSvc_;
-		httpBackend.expectGET('').respond({simple:'object'});
+		httpBackend.expectGET('http://api.openweathermap.org/data/2.5/weather?q=city&units=imperial').respond({simple:'object'});
 	}));
 
 	it('should exist', function(){

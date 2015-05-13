@@ -5,10 +5,12 @@
 		var ctrl = this;
 
 		ctrl.loadCurrentWeather = function(){
-			WeatherSvc.GetCurrentWeather(ctrl.city).then(
-				function(result){
-					ctrl.currentWeather = result;
-				});
+			if(ctrl.city){
+				WeatherSvc.GetCurrentWeather(ctrl.city).then(
+					function(result){
+						ctrl.currentWeather = result;
+					});
+			}
 		};
 
 		return ctrl;

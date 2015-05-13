@@ -6,4 +6,13 @@ describe('Application module', function() {
 			fail('Application module should exist but doesn\'t.');
 		}
 	});
+
+	beforeEach(module('testApp'));
+
+	describe('routing', function(){
+		it('should be able to get to the home page', inject(function($state){
+			expect($state.href('home')).toEqual('#/');
+		}));
+	});
+
 });

@@ -1,4 +1,14 @@
 (function(){ 
 	'use strict';
-	angular.module('weather', []);
+
+	var config = function($stateProvider) {
+		$stateProvider
+			.state('currentWeather', {
+				url:'/current/weather',
+				templateUrl: 'modules/weather/current.view.html'
+			});
+	};
+
+	angular.module('weather', ['ui.router'])
+		.config(['$stateProvider', config]);
 }());

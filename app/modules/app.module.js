@@ -1,5 +1,16 @@
 (function(){ 
 	'use strict';
 	
-	angular.module('testApp', []);
+	var config = function($stateProvider, $urlRouterProvider){
+		$stateProvider
+			.state('home', {
+				url: '/',
+				templateUrl: 'modules/home.view.html'
+			});
+
+		$urlRouterProvider.otherwise('/');
+	};
+
+	angular.module('testApp', ['ui.router', 'weather'])
+		.config(['$stateProvider', '$urlRouterProvider', config]);
 }());
