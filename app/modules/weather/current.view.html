@@ -1,5 +1,7 @@
 <section data-ng-controller="WeatherCtrl as vm">
+	<section data-ng-bind="vm.errorMessage" style="color:#F00;"></section>
 	<input type="text" data-ng-model="vm.city">
 	<button data-ng-click="vm.loadCurrentWeather()">Get Weather</button>
-	<span data-ng-bind="vm.currentWeather | json"></span>
+	<span data-ng-bind="vm.currentWeather.main.temp | number:0"></span>
+	<span data-ng-bind="vm.currentWeather.weather[0].description"></span>
 </section>

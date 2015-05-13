@@ -8,8 +8,20 @@
 			if(ctrl.city){
 				WeatherSvc.GetCurrentWeather(ctrl.city).then(
 					function(result){
-						ctrl.currentWeather = result;
+						if(result.data.cod === 200){
+							delete ctrl.errorMessage;
+							ctrl.currentWeather = result.data;
+						}else{
+							console.log(result);
+							ctrl.errorMessage = result.data.message;
+						}
+					},
+					function(err){
+						ctrl.errorMessage = err.error;
 					});
+			}else{
+				ctrl.errorMessage = 'No city provided.';
+				console.error('No city provided.');
 			}
 		};
 
