@@ -5,15 +5,18 @@
 	</head>
 	<body>
 		<h1>Welcome to the Angular Testing App!</h1>
+		<nav>
+			<a data-ui-sref="currentWeather">Weather Section</a>			
+		</nav>
 		<div ui-view></div>
 		<script src="lib/angular/angular.min.js"></script>
 		<script src="lib/ui-router/release/angular-ui-router.min.js"></script>
 		<!-- inject:js -->
-		<script src="/app/modules/app.module.js"></script>
-		<script src="/app/modules/weather/weather.module.js"></script>
-		<script src="/app/modules/app.controller.js"></script>
-		<script src="/app/modules/weather/weather.controller.js"></script>
-		<script src="/app/modules/weather/weather.service.js"></script>
+		<script src="/modules/app.module.js"></script>
+		<script src="/modules/weather/weather.module.js"></script>
+		<script src="/modules/app.controller.js"></script>
+		<script src="/modules/weather/weather.controller.js"></script>
+		<script src="/modules/weather/weather.service.js"></script>
 		<!-- endinject -->
 	</body>
 </html>
