@@ -1,4 +1,4 @@
-describe('Application module', function() {
+app.controlldescribe('Application module', function() {
 	it('should exist', function(){
 		try{
 			angular.module('testApp');

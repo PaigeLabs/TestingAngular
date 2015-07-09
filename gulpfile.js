@@ -18,7 +18,7 @@ gulp.task('inject', function(){
 });
 
 gulp.task('test', function(){
-	return gulp.src('./nonexistent')
+	return gulp.src('./foo')
 		.pipe(karma({
 			configFile: 'karma.conf.js',
 			action: 'run'
